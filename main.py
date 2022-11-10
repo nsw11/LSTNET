@@ -86,7 +86,7 @@ parser.add_argument('--dropout', type=float, default=0.2,
                     help='dropout applied to layers (0 = no dropout)')
 parser.add_argument('--seed', type=int, default=54321,
                     help='random seed')
-parser.add_argument('--gpu', type=int, default=None)
+parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument('--log_interval', type=int, default=2000, metavar='N',
                     help='report interval')
 parser.add_argument('--save', type=str,  default='model/model.pt',
