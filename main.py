@@ -57,7 +57,7 @@ def train(data, X, Y, model, criterion, optim, batch_size):
         loss = criterion(output * scale, Y * scale);
         loss.backward();
         grad_norm = optim.step();
-        total_loss += loss.data[0];
+        total_loss += loss.item();
         n_samples += (output.size(0) * data.m);
     return total_loss / n_samples
     
