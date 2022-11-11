@@ -20,7 +20,7 @@ class Model(nn.Module):
         self.dropout = nn.Dropout(p = args.dropout);
         if (self.skip > 0):
             self.GRUskip = nn.GRU(self.hidC, self.hidS);
-            self.linear1 = nn.Linear(self.hidR + self.skip * self.hidS, int(self.m));
+            self.linear1 = nn.Linear(int(self.hidR + self.skip * self.hidS), int(self.m));
         else:
             self.linear1 = nn.Linear(self.hidR, self.m);
         if (self.hw > 0):
