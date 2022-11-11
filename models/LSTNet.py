@@ -52,9 +52,9 @@ class Model(nn.Module):
             s = c[:,:, int(-self.pt * self.skip):].contiguous();
             s = s.view(batch_size, self.hidC, self.pt, int(self.skip));
             s = s.permute(2,0,3,1).contiguous();
-            s = s.view(self.pt, batch_size * self.skip, self.hidC);
+            s = s.view(self.pt, batch_size * int(self.skip), int(self.hidC));
             _, s = self.GRUskip(s);
-            s = s.view(batch_size, self.skip * self.hidS);
+            s = s.view(batch_size, int(self.skip) * int(self.hidS));
             s = self.dropout(s);
             r = torch.cat((r,s),1);
         
