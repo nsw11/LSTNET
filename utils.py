@@ -1,3 +1,7 @@
+# Nicholas Wen 11/11/22
+# CS 7180 Advanced Perception
+# Code is derived from https://github.com/laiguokun/LSTNet
+
 import torch
 import numpy as np;
 from torch.autograd import Variable
