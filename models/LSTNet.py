@@ -1,3 +1,6 @@
+# Nicholas Wen 11/11/22
+# CS 7180 Advanced Perception
+# Code is derived from https://github.com/laiguokun/LSTNet
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
