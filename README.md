@@ -1,16 +1,15 @@
 # time_series_forecasting
 
-### paper
+Nicholas Wen 11/11/22
+CS 7180 Advanced Perception
 
-Modeling Long- and Short-Term Temporal Patterns with Deep Neural Networks.(https://arxiv.org/abs/1703.07015)
+All code was done in Google Colab, you can run it on the following notebook: https://colab.research.google.com/drive/1zHctr7mrwYKIJ2NppXjlMaK81zVetg6w?usp=sharing
+to vary the number of skip connections and the horizon, vary the flags in the final line of the notebook
 
-### usage
 
-You can download the datasets mentioned in the paper at https://github.com/laiguokun/multivariate-time-series-data.
+All code can be found at the following repository: https://github.com/nsw11/LSTNET
 
-We give the examples to run different datasets in ele.sh, traffic.sh, solar.sh and stoke.sh.
 
-### Environment 
+A full write up for this project can be found here: https://wiki.khoury.northeastern.edu/display/~nsw11/CS7180%3A+Project+3+-+Time+Sequences
 
-Python 2.7 and Pytorch 0.3.0
 
