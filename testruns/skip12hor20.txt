@@ -1,0 +1,53 @@
+tcmalloc: large alloc 3357990912 bytes == 0x11d20000 @  0x7f208f341b6b 0x7f208f361379 0x7f201f8bed57 0x7f201f8acbc3 0x7f20497b76af 0x7f20497b8020 0x7f20497b8074 0x7f2049cc9def 0x7f204a53bb8b 0x7f204a2871d3 0x7f204a516b8f 0x7f204a2c4bf7 0x7f207181a860 0x7f2049cd11a4 0x7f204a78bd15 0x7f204a03180e 0x7f204a515375 0x7f204a0771b2 0x7f20714face7 0x58f6e4 0x5105e2 0x58fd37 0x50ca37 0x58fd37 0x50ca37 0x5b4ee6 0x4bad99 0x53881b 0x5909f6 0x510280 0x5b4ee6
+tensor(16619.3613)
+* number of parameters: 364391
+/usr/local/lib/python3.7/dist-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+begin training
+| end of epoch   1 | time:  5.55s | train_loss 722.1335 | valid rse 0.0991 | valid rae 0.0798 | valid corr  0.7730
+| end of epoch   2 | time:  4.31s | train_loss 326.9784 | valid rse 0.0838 | valid rae 0.0647 | valid corr  0.8298
+| end of epoch   3 | time:  4.34s | train_loss 278.4850 | valid rse 0.0952 | valid rae 0.0690 | valid corr  0.8439
+| end of epoch   4 | time:  4.47s | train_loss 259.0460 | valid rse 0.0813 | valid rae 0.0625 | valid corr  0.8476
+| end of epoch   5 | time:  4.33s | train_loss 246.7553 | valid rse 0.0910 | valid rae 0.0660 | valid corr  0.8553
+test rse 0.1335 | test rae 0.0769 | test corr 0.8621
+| end of epoch   6 | time:  4.38s | train_loss 239.5442 | valid rse 0.0800 | valid rae 0.0596 | valid corr  0.8575
+| end of epoch   7 | time:  4.38s | train_loss 234.6724 | valid rse 0.0818 | valid rae 0.0599 | valid corr  0.8595
+| end of epoch   8 | time:  4.40s | train_loss 229.3370 | valid rse 0.0817 | valid rae 0.0571 | valid corr  0.8626
+| end of epoch   9 | time:  4.36s | train_loss 226.1893 | valid rse 0.0771 | valid rae 0.0556 | valid corr  0.8691
+| end of epoch  10 | time:  4.31s | train_loss 222.3500 | valid rse 0.0742 | valid rae 0.0541 | valid corr  0.8734
+test rse 0.1361 | test rae 0.0706 | test corr 0.8792
+| end of epoch  11 | time:  4.30s | train_loss 219.2356 | valid rse 0.0802 | valid rae 0.0563 | valid corr  0.8802
+| end of epoch  12 | time:  4.31s | train_loss 219.6357 | valid rse 0.0775 | valid rae 0.0561 | valid corr  0.8797
+| end of epoch  13 | time:  4.37s | train_loss 216.9608 | valid rse 0.0749 | valid rae 0.0552 | valid corr  0.8834
+| end of epoch  14 | time:  4.29s | train_loss 212.2506 | valid rse 0.0746 | valid rae 0.0531 | valid corr  0.8857
+| end of epoch  15 | time:  4.27s | train_loss 214.5920 | valid rse 0.0816 | valid rae 0.0594 | valid corr  0.8812
+test rse 0.1251 | test rae 0.0683 | test corr 0.8902
+| end of epoch  16 | time:  4.25s | train_loss 212.9572 | valid rse 0.0743 | valid rae 0.0561 | valid corr  0.8842
+| end of epoch  17 | time:  4.25s | train_loss 214.2312 | valid rse 0.0762 | valid rae 0.0534 | valid corr  0.8842
+| end of epoch  18 | time:  4.24s | train_loss 208.5918 | valid rse 0.0721 | valid rae 0.0520 | valid corr  0.8852
+| end of epoch  19 | time:  4.23s | train_loss 211.4168 | valid rse 0.0723 | valid rae 0.0524 | valid corr  0.8882
+| end of epoch  20 | time:  4.26s | train_loss 209.6006 | valid rse 0.0733 | valid rae 0.0518 | valid corr  0.8871
+test rse 0.1218 | test rae 0.0650 | test corr 0.8914
+| end of epoch  21 | time:  4.27s | train_loss 206.6158 | valid rse 0.1000 | valid rae 0.0654 | valid corr  0.8880
+| end of epoch  22 | time:  4.38s | train_loss 207.6199 | valid rse 0.0766 | valid rae 0.0545 | valid corr  0.8878
+| end of epoch  23 | time:  4.28s | train_loss 208.5343 | valid rse 0.0752 | valid rae 0.0533 | valid corr  0.8878
+| end of epoch  24 | time:  4.37s | train_loss 208.5694 | valid rse 0.0727 | valid rae 0.0519 | valid corr  0.8873
+| end of epoch  25 | time:  4.28s | train_loss 205.5978 | valid rse 0.0793 | valid rae 0.0545 | valid corr  0.8889
+test rse 0.1210 | test rae 0.0653 | test corr 0.8914
+| end of epoch  26 | time:  4.27s | train_loss 206.8365 | valid rse 0.0734 | valid rae 0.0527 | valid corr  0.8884
+| end of epoch  27 | time:  4.26s | train_loss 207.0440 | valid rse 0.0958 | valid rae 0.0661 | valid corr  0.8882
+| end of epoch  28 | time:  4.27s | train_loss 205.1318 | valid rse 0.0876 | valid rae 0.0567 | valid corr  0.8897
+| end of epoch  29 | time:  4.28s | train_loss 209.2416 | valid rse 0.0833 | valid rae 0.0574 | valid corr  0.8902
+| end of epoch  30 | time:  4.28s | train_loss 205.4992 | valid rse 0.1066 | valid rae 0.0649 | valid corr  0.8848
+test rse 0.1379 | test rae 0.0733 | test corr 0.8917
+| end of epoch  31 | time:  4.31s | train_loss 202.9994 | valid rse 0.0755 | valid rae 0.0536 | valid corr  0.8882
+| end of epoch  32 | time:  4.33s | train_loss 204.4041 | valid rse 0.0828 | valid rae 0.0556 | valid corr  0.8899
+| end of epoch  33 | time:  4.27s | train_loss 205.0718 | valid rse 0.0746 | valid rae 0.0516 | valid corr  0.8870
+| end of epoch  34 | time:  4.27s | train_loss 203.2691 | valid rse 0.0794 | valid rae 0.0561 | valid corr  0.8883
+| end of epoch  35 | time:  4.31s | train_loss 201.6477 | valid rse 0.1017 | valid rae 0.0611 | valid corr  0.8868
+test rse 0.1300 | test rae 0.0691 | test corr 0.8915
+| end of epoch  36 | time:  4.30s | train_loss 199.5615 | valid rse 0.0969 | valid rae 0.0607 | valid corr  0.8888
+-----------------------------------------------------------------------------------------
+Exiting from training early
+test rse 0.1318 | test rae 0.0677 | test corr 0.8895
+

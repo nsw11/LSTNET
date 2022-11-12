@@ -1,0 +1,183 @@
+
+Untitled0.ipynb_
+Files
+..
+Drop files to upload them to session storage
+
+!pip install numpy
+!pip install -U torch==1.12.1 torchvision==0.13.1 -f https://download.pytorch.org/whl/cu101/torch_stable.html
+
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (1.21.6)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Looking in links: https://download.pytorch.org/whl/cu101/torch_stable.html
+Requirement already satisfied: torch==1.12.1 in /usr/local/lib/python3.7/dist-packages (1.12.1+cu113)
+Requirement already satisfied: torchvision==0.13.1 in /usr/local/lib/python3.7/dist-packages (0.13.1+cu113)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.7/dist-packages (from torch==1.12.1) (4.1.1)
+Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from torchvision==0.13.1) (1.21.6)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /usr/local/lib/python3.7/dist-packages (from torchvision==0.13.1) (7.1.2)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from torchvision==0.13.1) (2.23.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests->torchvision==0.13.1) (2022.9.24)
+Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests->torchvision==0.13.1) (3.0.4)
+Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.7/dist-packages (from requests->torchvision==0.13.1) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests->torchvision==0.13.1) (1.24.3)
+
+Get models from custom repository
+
+!git clone https://github.com/nsw11/LSTNET.git
+
+Cloning into 'LSTNET'...
+remote: Enumerating objects: 131, done.
+remote: Counting objects: 100% (131/131), done.
+remote: Compressing objects: 100% (108/108), done.
+remote: Total 131 (delta 62), reused 46 (delta 21), pack-reused 0
+Receiving objects: 100% (131/131), 48.72 MiB | 14.16 MiB/s, done.
+Resolving deltas: 100% (62/62), done.
+
+Unzip Datasets
+
+%cd LSTNET/datasets
+!unzip electricity
+
+
+/content/LSTNET/datasets
+Archive:  electricity.zip
+  inflating: electricity.txt         
+
+Train Network
+
+%cd ..
+!ls
+
+/content/LSTNET
+datasets  LICENSE  main.py  models  Optim.py  README.md  utils.py
+
+tcmalloc: large alloc 3364036608 bytes == 0x123ec000 @  0x7f65e3f1bb6b 0x7f65e3f3b379 0x7f6574498d57 0x7f6574486bc3 0x7f659e3916af 0x7f659e392020 0x7f659e392074 0x7f659e8a3def 0x7f659f115b8b 0x7f659ee611d3 0x7f659f0f0b8f 0x7f659ee9ebf7 0x7f65c63f4860 0x7f659e8ab1a4 0x7f659f365d15 0x7f659ec0b80e 0x7f659f0ef375 0x7f659ec511b2 0x7f65c60d4ce7 0x58f6e4 0x5105e2 0x58fd37 0x50ca37 0x58fd37 0x50ca37 0x5b4ee6 0x4bad99 0x53881b 0x5909f6 0x510280 0x5b4ee6
+tensor(16619.3613)
+* number of parameters: 335501
+/usr/local/lib/python3.7/dist-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+begin training
+| end of epoch   1 | time:  5.53s | train_loss 767.2667 | valid rse 0.1122 | valid rae 0.0911 | valid corr  0.7334
+| end of epoch   2 | time:  4.30s | train_loss 364.4050 | valid rse 0.0917 | valid rae 0.0723 | valid corr  0.8207
+| end of epoch   3 | time:  4.39s | train_loss 289.3020 | valid rse 0.0892 | valid rae 0.0662 | valid corr  0.8430
+| end of epoch   4 | time:  4.41s | train_loss 258.9379 | valid rse 0.0813 | valid rae 0.0617 | valid corr  0.8513
+| end of epoch   5 | time:  4.32s | train_loss 240.6454 | valid rse 0.0786 | valid rae 0.0591 | valid corr  0.8570
+test rse 0.1126 | test rae 0.0693 | test corr 0.8676
+| end of epoch   6 | time:  4.33s | train_loss 229.1979 | valid rse 0.0814 | valid rae 0.0585 | valid corr  0.8603
+| end of epoch   7 | time:  4.35s | train_loss 219.6847 | valid rse 0.0740 | valid rae 0.0550 | valid corr  0.8656
+| end of epoch   8 | time:  4.33s | train_loss 211.2635 | valid rse 0.0718 | valid rae 0.0531 | valid corr  0.8708
+| end of epoch   9 | time:  4.33s | train_loss 207.6481 | valid rse 0.0706 | valid rae 0.0523 | valid corr  0.8747
+| end of epoch  10 | time:  4.31s | train_loss 202.8135 | valid rse 0.0718 | valid rae 0.0509 | valid corr  0.8824
+test rse 0.1033 | test rae 0.0608 | test corr 0.8920
+| end of epoch  11 | time:  4.32s | train_loss 197.0981 | valid rse 0.0692 | valid rae 0.0495 | valid corr  0.8878
+| end of epoch  12 | time:  4.38s | train_loss 193.6800 | valid rse 0.0690 | valid rae 0.0496 | valid corr  0.8863
+| end of epoch  13 | time:  4.60s | train_loss 192.4214 | valid rse 0.0673 | valid rae 0.0477 | valid corr  0.8908
+| end of epoch  14 | time:  4.35s | train_loss 188.7828 | valid rse 0.0685 | valid rae 0.0482 | valid corr  0.8900
+| end of epoch  15 | time:  4.35s | train_loss 187.3389 | valid rse 0.0678 | valid rae 0.0476 | valid corr  0.8926
+test rse 0.0957 | test rae 0.0557 | test corr 0.9016
+| end of epoch  16 | time:  4.37s | train_loss 185.7796 | valid rse 0.0665 | valid rae 0.0477 | valid corr  0.8938
+| end of epoch  17 | time:  4.36s | train_loss 184.5633 | valid rse 0.0663 | valid rae 0.0473 | valid corr  0.8914
+| end of epoch  18 | time:  4.36s | train_loss 183.7090 | valid rse 0.0679 | valid rae 0.0483 | valid corr  0.8916
+| end of epoch  19 | time:  4.34s | train_loss 182.0519 | valid rse 0.0660 | valid rae 0.0470 | valid corr  0.8948
+| end of epoch  20 | time:  4.33s | train_loss 180.7754 | valid rse 0.0650 | valid rae 0.0456 | valid corr  0.8945
+test rse 0.0962 | test rae 0.0548 | test corr 0.9029
+| end of epoch  21 | time:  4.32s | train_loss 179.5087 | valid rse 0.0667 | valid rae 0.0461 | valid corr  0.8967
+| end of epoch  22 | time:  4.45s | train_loss 179.4977 | valid rse 0.0656 | valid rae 0.0449 | valid corr  0.8977
+| end of epoch  23 | time:  4.31s | train_loss 178.8520 | valid rse 0.0661 | valid rae 0.0453 | valid corr  0.8975
+| end of epoch  24 | time:  4.31s | train_loss 178.9130 | valid rse 0.0657 | valid rae 0.0457 | valid corr  0.8988
+| end of epoch  25 | time:  4.33s | train_loss 177.4987 | valid rse 0.0663 | valid rae 0.0456 | valid corr  0.8993
+test rse 0.0966 | test rae 0.0547 | test corr 0.9069
+| end of epoch  26 | time:  4.34s | train_loss 176.1328 | valid rse 0.0645 | valid rae 0.0446 | valid corr  0.9014
+| end of epoch  27 | time:  4.32s | train_loss 176.3649 | valid rse 0.0640 | valid rae 0.0449 | valid corr  0.9023
+| end of epoch  28 | time:  4.33s | train_loss 176.8434 | valid rse 0.0650 | valid rae 0.0453 | valid corr  0.9027
+| end of epoch  29 | time:  4.34s | train_loss 177.3105 | valid rse 0.0650 | valid rae 0.0451 | valid corr  0.8978
+| end of epoch  30 | time:  4.32s | train_loss 175.1062 | valid rse 0.0642 | valid rae 0.0441 | valid corr  0.9033
+test rse 0.0956 | test rae 0.0538 | test corr 0.9096
+| end of epoch  31 | time:  4.37s | train_loss 174.1220 | valid rse 0.0658 | valid rae 0.0450 | valid corr  0.9048
+| end of epoch  32 | time:  4.45s | train_loss 174.6228 | valid rse 0.0658 | valid rae 0.0449 | valid corr  0.9024
+| end of epoch  33 | time:  4.34s | train_loss 173.0851 | valid rse 0.0634 | valid rae 0.0442 | valid corr  0.9055
+| end of epoch  34 | time:  4.31s | train_loss 172.4114 | valid rse 0.0686 | valid rae 0.0453 | valid corr  0.9042
+| end of epoch  35 | time:  4.33s | train_loss 174.8758 | valid rse 0.0636 | valid rae 0.0433 | valid corr  0.9063
+test rse 0.0998 | test rae 0.0538 | test corr 0.9106
+| end of epoch  36 | time:  4.33s | train_loss 172.1278 | valid rse 0.0643 | valid rae 0.0444 | valid corr  0.9060
+| end of epoch  37 | time:  4.30s | train_loss 174.0205 | valid rse 0.0628 | valid rae 0.0434 | valid corr  0.9065
+| end of epoch  38 | time:  4.31s | train_loss 173.5669 | valid rse 0.0648 | valid rae 0.0436 | valid corr  0.9070
+| end of epoch  39 | time:  4.30s | train_loss 172.3823 | valid rse 0.0634 | valid rae 0.0439 | valid corr  0.9049
+| end of epoch  40 | time:  4.30s | train_loss 174.3591 | valid rse 0.0639 | valid rae 0.0441 | valid corr  0.9021
+test rse 0.0980 | test rae 0.0556 | test corr 0.9003
+| end of epoch  41 | time:  4.45s | train_loss 171.5605 | valid rse 0.0625 | valid rae 0.0425 | valid corr  0.9084
+| end of epoch  42 | time:  4.31s | train_loss 170.5211 | valid rse 0.0624 | valid rae 0.0434 | valid corr  0.9079
+| end of epoch  43 | time:  4.31s | train_loss 171.7706 | valid rse 0.0624 | valid rae 0.0426 | valid corr  0.9076
+| end of epoch  44 | time:  4.32s | train_loss 169.8623 | valid rse 0.0645 | valid rae 0.0451 | valid corr  0.9074
+| end of epoch  45 | time:  4.30s | train_loss 173.7473 | valid rse 0.0668 | valid rae 0.0449 | valid corr  0.9078
+test rse 0.0964 | test rae 0.0544 | test corr 0.9103
+| end of epoch  46 | time:  4.28s | train_loss 170.2653 | valid rse 0.0643 | valid rae 0.0447 | valid corr  0.9077
+| end of epoch  47 | time:  4.29s | train_loss 171.9026 | valid rse 0.0625 | valid rae 0.0436 | valid corr  0.9044
+| end of epoch  48 | time:  4.32s | train_loss 170.2541 | valid rse 0.0631 | valid rae 0.0430 | valid corr  0.9092
+| end of epoch  49 | time:  4.30s | train_loss 170.9246 | valid rse 0.0621 | valid rae 0.0424 | valid corr  0.9087
+| end of epoch  50 | time:  4.42s | train_loss 169.7351 | valid rse 0.0641 | valid rae 0.0439 | valid corr  0.9065
+test rse 0.1059 | test rae 0.0561 | test corr 0.9089
+| end of epoch  51 | time:  4.31s | train_loss 171.9457 | valid rse 0.0630 | valid rae 0.0444 | valid corr  0.9072
+| end of epoch  52 | time:  4.41s | train_loss 169.7099 | valid rse 0.0646 | valid rae 0.0440 | valid corr  0.9093
+| end of epoch  53 | time:  4.37s | train_loss 169.2655 | valid rse 0.0630 | valid rae 0.0427 | valid corr  0.9090
+| end of epoch  54 | time:  4.30s | train_loss 167.8171 | valid rse 0.0650 | valid rae 0.0446 | valid corr  0.9091
+| end of epoch  55 | time:  4.32s | train_loss 168.9577 | valid rse 0.0635 | valid rae 0.0429 | valid corr  0.9083
+test rse 0.0952 | test rae 0.0526 | test corr 0.9113
+| end of epoch  56 | time:  4.31s | train_loss 171.2783 | valid rse 0.0671 | valid rae 0.0446 | valid corr  0.9062
+| end of epoch  57 | time:  4.29s | train_loss 173.4782 | valid rse 0.0656 | valid rae 0.0445 | valid corr  0.9078
+| end of epoch  58 | time:  4.31s | train_loss 170.1912 | valid rse 0.0629 | valid rae 0.0435 | valid corr  0.9086
+| end of epoch  59 | time:  4.43s | train_loss 168.1573 | valid rse 0.0642 | valid rae 0.0444 | valid corr  0.9008
+| end of epoch  60 | time:  4.33s | train_loss 169.0276 | valid rse 0.0622 | valid rae 0.0424 | valid corr  0.9088
+test rse 0.0950 | test rae 0.0524 | test corr 0.9115
+| end of epoch  61 | time:  4.32s | train_loss 169.3533 | valid rse 0.0637 | valid rae 0.0445 | valid corr  0.9042
+| end of epoch  62 | time:  4.31s | train_loss 170.7565 | valid rse 0.0632 | valid rae 0.0428 | valid corr  0.9082
+| end of epoch  63 | time:  4.30s | train_loss 168.2016 | valid rse 0.0614 | valid rae 0.0419 | valid corr  0.9089
+| end of epoch  64 | time:  4.30s | train_loss 168.4834 | valid rse 0.0613 | valid rae 0.0417 | valid corr  0.9097
+| end of epoch  65 | time:  4.32s | train_loss 167.0296 | valid rse 0.0627 | valid rae 0.0436 | valid corr  0.9062
+test rse 0.0961 | test rae 0.0537 | test corr 0.9086
+| end of epoch  66 | time:  4.31s | train_loss 169.8014 | valid rse 0.0658 | valid rae 0.0438 | valid corr  0.9087
+| end of epoch  67 | time:  4.31s | train_loss 170.0004 | valid rse 0.0623 | valid rae 0.0432 | valid corr  0.9059
+| end of epoch  68 | time:  4.39s | train_loss 168.3465 | valid rse 0.0615 | valid rae 0.0428 | valid corr  0.9080
+| end of epoch  69 | time:  4.38s | train_loss 167.7059 | valid rse 0.0628 | valid rae 0.0423 | valid corr  0.9094
+| end of epoch  70 | time:  4.30s | train_loss 167.4450 | valid rse 0.0638 | valid rae 0.0431 | valid corr  0.9088
+test rse 0.0951 | test rae 0.0529 | test corr 0.9112
+| end of epoch  71 | time:  4.30s | train_loss 168.9420 | valid rse 0.0638 | valid rae 0.0429 | valid corr  0.9081
+| end of epoch  72 | time:  4.29s | train_loss 165.7452 | valid rse 0.0629 | valid rae 0.0434 | valid corr  0.9075
+| end of epoch  73 | time:  4.29s | train_loss 168.1754 | valid rse 0.0648 | valid rae 0.0450 | valid corr  0.9095
+| end of epoch  74 | time:  4.29s | train_loss 165.3417 | valid rse 0.0626 | valid rae 0.0429 | valid corr  0.9089
+| end of epoch  75 | time:  4.29s | train_loss 165.7871 | valid rse 0.0654 | valid rae 0.0449 | valid corr  0.9093
+test rse 0.0961 | test rae 0.0544 | test corr 0.9124
+| end of epoch  76 | time:  4.31s | train_loss 166.9786 | valid rse 0.0651 | valid rae 0.0446 | valid corr  0.9062
+| end of epoch  77 | time:  4.31s | train_loss 167.0291 | valid rse 0.0653 | valid rae 0.0441 | valid corr  0.9034
+| end of epoch  78 | time:  4.43s | train_loss 168.0606 | valid rse 0.0650 | valid rae 0.0439 | valid corr  0.9041
+| end of epoch  79 | time:  4.30s | train_loss 165.8816 | valid rse 0.0635 | valid rae 0.0433 | valid corr  0.9050
+| end of epoch  80 | time:  4.31s | train_loss 170.0827 | valid rse 0.0646 | valid rae 0.0441 | valid corr  0.9038
+test rse 0.0960 | test rae 0.0534 | test corr 0.9089
+| end of epoch  81 | time:  4.29s | train_loss 167.9991 | valid rse 0.0638 | valid rae 0.0438 | valid corr  0.9045
+| end of epoch  82 | time:  4.31s | train_loss 167.7985 | valid rse 0.0632 | valid rae 0.0430 | valid corr  0.9070
+| end of epoch  83 | time:  4.30s | train_loss 166.3107 | valid rse 0.0630 | valid rae 0.0434 | valid corr  0.9065
+| end of epoch  84 | time:  4.28s | train_loss 165.0185 | valid rse 0.0647 | valid rae 0.0440 | valid corr  0.9063
+| end of epoch  85 | time:  4.30s | train_loss 165.3907 | valid rse 0.0670 | valid rae 0.0455 | valid corr  0.9014
+test rse 0.1141 | test rae 0.0599 | test corr 0.9034
+| end of epoch  86 | time:  4.29s | train_loss 165.9723 | valid rse 0.0657 | valid rae 0.0453 | valid corr  0.9077
+| end of epoch  87 | time:  4.46s | train_loss 167.9446 | valid rse 0.0625 | valid rae 0.0429 | valid corr  0.9066
+| end of epoch  88 | time:  4.30s | train_loss 167.2508 | valid rse 0.0630 | valid rae 0.0425 | valid corr  0.9073
+| end of epoch  89 | time:  4.30s | train_loss 164.9698 | valid rse 0.0655 | valid rae 0.0440 | valid corr  0.9041
+| end of epoch  90 | time:  4.32s | train_loss 166.6332 | valid rse 0.0632 | valid rae 0.0437 | valid corr  0.9066
+test rse 0.0957 | test rae 0.0531 | test corr 0.9090
+| end of epoch  91 | time:  4.31s | train_loss 165.4609 | valid rse 0.0634 | valid rae 0.0442 | valid corr  0.9053
+| end of epoch  92 | time:  4.42s | train_loss 164.4592 | valid rse 0.0638 | valid rae 0.0438 | valid corr  0.9040
+| end of epoch  93 | time:  4.30s | train_loss 165.9566 | valid rse 0.0641 | valid rae 0.0439 | valid corr  0.9035
+| end of epoch  94 | time:  4.30s | train_loss 164.3687 | valid rse 0.0643 | valid rae 0.0433 | valid corr  0.9054
+| end of epoch  95 | time:  4.32s | train_loss 164.0651 | valid rse 0.0656 | valid rae 0.0441 | valid corr  0.9052
+test rse 0.0970 | test rae 0.0534 | test corr 0.9089
+| end of epoch  96 | time:  4.38s | train_loss 164.3034 | valid rse 0.0642 | valid rae 0.0434 | valid corr  0.9057
+| end of epoch  97 | time:  4.37s | train_loss 163.5436 | valid rse 0.0638 | valid rae 0.0433 | valid corr  0.9077
+| end of epoch  98 | time:  4.32s | train_loss 166.2201 | valid rse 0.0641 | valid rae 0.0433 | valid corr  0.9066
+| end of epoch  99 | time:  4.30s | train_loss 164.5195 | valid rse 0.0647 | valid rae 0.0438 | valid corr  0.9049
+| end of epoch 100 | time:  4.28s | train_loss 163.8597 | valid rse 0.0634 | valid rae 0.0445 | valid corr  0.9056
+test rse 0.0994 | test rae 0.0547 | test corr 0.9065
+test rse 0.0951 | test rae 0.0521 | test corr 0.9120
+
+
